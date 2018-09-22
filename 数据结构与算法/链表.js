@@ -87,38 +87,39 @@ LinkedList.prototype = {
     }
   },
 
-   toString: function() {
-     var current = this.head
-     var string = ''
-
-     while (current) {
-       string = current.element
-       current = current.next
-     }
-
-     return string
-   },
-
-   index: function (element) {
+  toString: function() {
     var current = this.head
-    var index = -1
+    var string = ''
 
-    while(current) {
-      if(element === current.element) {
-        return index
-      }
-      index++
+    while (current) {
+      string = current.element
       current = current.next
     }
 
-    return -1
-   },
+    return string
+  },
 
-   remove: function(element) {
-     var index = this.indexOf(element)
-     return this.removeAt(index)
-   },
+  index: function (element) {
+  var current = this.head
+  var index = -1
 
+  while(current) {
+    if(element === current.element) {
+      return index
+    }
+    index++
+    current = current.next
+  }
+
+  return -1
+  },
+
+  remove: function(element) {
+    var index = this.indexOf(element)
+    return this.removeAt(index)
+  },
+
+  
 }
 
 
