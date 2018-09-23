@@ -1,58 +1,65 @@
-function MySet() {
-  var item = {}
-
-  this.has = function(value) {
-    return DataTransferItemList.hasOwnProperty(value)
-    // return value in items
-  }
-
-  this.add = function (value) {
-    if(!this[value]) {
-      this[value] = value
-      return true
+  //给原生的set 提供 交集 并集 差集  子集  补集 等方法
+Object.assign(Set.prototype, {
+  // 并集
+  bing: function (anotherSet) {
+    let result = new Set()
+    for(const j of this) {
+      result.add(j)
     }
-    return false
+    for(const i of anotherSet) {
+      result.add(i)
+    }
+    
+    return result
+  },
+
+  //交集
+  jiao: function (anotherSet) {
+    let result = new Set()
+    for(const i of anotherSet) {
+      for(const j of this) {
+        if(i == j) {
+          result.add(i)
+        }
+      }
+    }
+    return result
+  },
+
+  // 子集
+  callSon: function (anotherSet) {
+    for(const i of anotherSet) {
+      if(!this.has(i)) {
+        return false
+      }
+    }
+
+    return true
+  },
+
+  //差集
+  cha: function (anotherSet) {
+    let result = new Set()
+    for(const i of this) {
+      if(!anotherSet.has(i)) {
+        result.add(i)
+      }
+    }
+
+    return result
   }
 
 
 
-}
-
-MySet.prototype = {
-  
-
-  
 
 
-}
+})
 
-
-var set1 = new MySet()
-
-set1.add({})
-
-// console.log(new Set([1,1,2,3,sss ,sss]))
-
-function Foo() {
-  this.colors = ['blue', 'red']
-}
-Son.prototype = new Foo()
-
-function Son() {
-  this.ownColors = ['grey']
-}
-
-var obj = new Son()
-
-for (const k of Reflect.ownKeys(obj)) {
-  console.log(k)
-  
-} // all own keys (include symbols)
-// console.log(new Son().colors)
-// for(const k in new Son()) {
-//   console.log(k)
-// }
+var demo = new Set([1,2,3])
+var demo2 = new Set([2,3])
+console.log(demo)
+console.log(demo.cha(demo2))
+// console.log(demo)
 
 
 
-//给原生的set 提供 交集 并集 差集  子集  补集 等方法
