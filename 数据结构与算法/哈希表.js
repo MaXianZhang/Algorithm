@@ -16,7 +16,7 @@ function ValuePair(key, value) {
   this.key = key
   this.value = value
   
-  this.toSting = function() {
+  this.toString = function() {
     return `[${this.key}-${this.value}]`
   }
 }
