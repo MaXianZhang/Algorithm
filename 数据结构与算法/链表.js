@@ -41,8 +41,7 @@ LinkedList.prototype = {
       var deleteElem = this.head
       var previous
       if(position == 0) {
-        Nnode.next = this.head
-        this.head = Nnode
+        this.head = deleteElem.next
       } else {
         var index = 0
         // 这里循环了position - 1 次，使deleteElem指向我们想要的位置
@@ -123,20 +122,22 @@ LinkedList.prototype = {
 }
 
 
-var demo = new LinkedList()
+module.exports = LinkedList
 
-demo.append([1])
-demo.append([2])
-demo.append([3])
-demo.append([4])
-demo.append([5])
-demo.removeAt(2)
+// var demo = new LinkedList()
 
-console.log(demo.head.next)
-console.log('')
-console.log(demo.head.next.next)
+// demo.append([1])
+// demo.append([2])
+// demo.append([3])
+// demo.append([4])
+// demo.append([5])
+// demo.removeAt(2)
 
-// console.log(demo)
+// console.log(demo.head.next)
+// console.log('')
+// console.log(demo.head.next.next)
 
-var len = 8
+// // console.log(demo)
+
+// var len = 8
 
