@@ -7,8 +7,8 @@ function HashCode(key) {
     hash = hash * 33 + key.charCodeAt(i)
   }
 
-  // return hash % 1013
-  return 1
+  return hash % 1013
+  // return 1
 }
 
 //因为我们要用到链表，所以就要用一个对象来储存信息
@@ -97,8 +97,6 @@ class HashTable {
       return false
     }
   }
-
-
 }
 let demo = new HashTable()
 

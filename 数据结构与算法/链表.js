@@ -9,19 +9,18 @@ function DoublyNode() {
   this.prev = null
 }
 
-function LinkedList() {
-  this.length = 0
-  this.head = null
-}
-
 function DoublyLinkedList() {
   this.length = 0
   this.head = null
-  this.tail = null
 }
 
-LinkedList.prototype = {
-  append: function(element) {
+class LinkedList {
+  constructor() {
+    this.length = 0
+    this.head = null
+  }
+
+  append (element) {
     var node = new Node(element),
         current;
     if(this.head == null) {
@@ -34,9 +33,9 @@ LinkedList.prototype = {
       current.next = node
     }
     this.length++
-  },
+  }
 
-  removeAt: function(position) {
+  removeAt (position) {
     if(position > -1 && position <= this.length) {
       var deleteElem = this.head
       var previous
@@ -58,9 +57,9 @@ LinkedList.prototype = {
       this.length--
       return deleteElem.next
     }
-  },
+  }
 
-  insert: function(position, element) {
+  insert (position, element) {
     if(position >= 0 && position <= length) {
       var node = new Node(element)
       var current = head
@@ -84,9 +83,9 @@ LinkedList.prototype = {
     } else {
       return false
     }
-  },
+  }
 
-  toString: function() {
+  toString () {
     var current = this.head
     var string = ''
 
@@ -96,9 +95,9 @@ LinkedList.prototype = {
     }
 
     return string
-  },
+  }
 
-  index: function (element) {
+  index  (element) {
   var current = this.head
   var index = -1
 
@@ -111,33 +110,10 @@ LinkedList.prototype = {
   }
 
   return -1
-  },
+  }
 
-  remove: function(element) {
+  remove (element) {
     var index = this.indexOf(element)
     return this.removeAt(index)
-  },
-
-  
+  }
 }
-
-
-module.exports = LinkedList
-
-// var demo = new LinkedList()
-
-// demo.append([1])
-// demo.append([2])
-// demo.append([3])
-// demo.append([4])
-// demo.append([5])
-// demo.removeAt(2)
-
-// console.log(demo.head.next)
-// console.log('')
-// console.log(demo.head.next.next)
-
-// // console.log(demo)
-
-// var len = 8
-
