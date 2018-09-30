@@ -35,6 +35,65 @@ function searchNode(node, key) {
   }
 }
 
+function maxNode(node) {
+  if (node) {
+    while(node && node.right !== null) {
+      node = node.right
+    }
+    return node
+  }
+  return null
+}
+
+function minNode(node) {
+  if (node) {
+    while(node && node.left !== null) {
+      node = node.left
+    }
+    return node
+  }
+  return null
+}
+
+//辅助函数，用递归去删除相应元素
+function removeNode(node, key) {
+
+  if (node == null) {
+    return null
+  }
+
+  if(key < node.key) {
+    node.left = removeNode(node.left, key)
+    return node
+  } else if (key > node.key) {
+    node.right = removeNode(node.right, key)
+    return node
+  } else {
+    //这里找到了要删除的元素
+    //第一种情况，一个叶节点
+    if (node.left === null && node.right === null) {
+      node = null
+      return node
+    }
+
+    //第二种情况，只有一个子节点的节点
+    if (node.left === null) {
+      node = node.right
+      return node
+    } else if (node.right === null) {
+      node = node.left
+      return node
+    }
+
+    //第三种情况，一个有两个子节点的节点
+    const min = minNode(node)
+    const key = min.key
+    removeNode(node.right, key)
+    node.key = key
+    return node
+  }
+}
+
 class BinarySearchTree {
   constructor() {
     this.root = null
@@ -52,6 +111,18 @@ class BinarySearchTree {
 
   search (key) {
     return searchNode(this.root, key)
+  }
+
+  remove(key) {
+    this.root = removeNode(this.root, key)
+  }
+
+  findMax() {
+    return maxNode(this.root)
+  }
+
+  findMin() {
+    return minNode(this.root)
   }
 }
 
@@ -102,6 +173,6 @@ function postOrderTraverseNode(node, callback) {
   }
 }
 
-inOrderTraverseNode(demo.root, function(content) {
-  console.log(content)
-})
+demo.remove(25)
+
+console.log(demo.findMax())
