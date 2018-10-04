@@ -173,6 +173,6 @@ function postOrderTraverseNode(node, callback) {
   }
 }
 
-demo.remove(25)
+// demo.remove(25)
 
-console.log(demo.findMax())
+// console.log(demo.findMax())
