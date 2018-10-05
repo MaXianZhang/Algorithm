@@ -24,45 +24,37 @@ class Graph {
   BFS(first, callback) {
     let grey = []
     let black = []
-
     grey.push(first)
 
-    const take = () => {
-      if(grey.length == 0) 
-        return  
+    while (grey.length !== 0) {
       let demo = grey.shift()
-      callback(demo)
       black.push(demo)
       this.adjList[demo].forEach(item => {
         if (black.indexOf(item) == -1 && grey.indexOf(item) == -1) {
           grey.push(item)
         }
       })
-      take()
+
+      callback && callback(demo)
     }
-    take()
   }
 
   DFS(first, callback) {
     let grey = []
     let black = []
-
     grey.push(first)
 
-    const take = () => {
-      if(grey.length == 0) 
-        return  
+    while (grey.length !== 0) {
       let demo = grey.pop()
-      callback(demo)
       black.push(demo)
       this.adjList[demo].forEach(item => {
         if (black.indexOf(item) == -1 && grey.indexOf(item) == -1) {
           grey.push(item)
         }
       })
-      take()
+
+      callback && callback(demo)
     }
-    take()
   }
 }
 
