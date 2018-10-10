@@ -107,3 +107,14 @@ console.log(demo)
 demo.DFS('a', (pre, cur, dis) => {
   console.log(pre)
 })
+function text(x) {
+  console.log(x)
+
+  var x = 10
+  console.log(x)
+  x = 20
+  function x (){}
+  console.log(x)
+}
+
+text(40)
