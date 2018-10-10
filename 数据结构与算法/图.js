@@ -52,17 +52,23 @@ class Graph {
   DFS (first, callback) {
     let grey = []
     let black = []
+    let pred = []
+    this.vertices.forEach(item => {
+      pred[item] = null
+    })
+
     grey.push(first)
 
     while (grey.length !== 0) {
       let cur = grey.pop()
       this.adjList[cur].forEach(next => {
         if (black.indexOf(next) == -1 && grey.indexOf(next) == -1) {
+          pred[next] = cur
           grey.push(next)
         }
       })
       black.push(cur)
-      callback && callback(cur)
+      callback && callback(pred[cur], cur)
     }
   }
 }
@@ -105,16 +111,5 @@ console.log(demo)
 
 
 demo.DFS('a', (pre, cur, dis) => {
-  console.log(pre)
+  console.log(pre, cur)
 })
-function text(x) {
-  console.log(x)
-
-  var x = 10
-  console.log(x)
-  x = 20
-  function x (){}
-  console.log(x)
-}
-
-text(40)
