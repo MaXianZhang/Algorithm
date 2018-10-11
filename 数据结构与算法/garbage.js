@@ -1,35 +1,50 @@
+// let line = readline().split(' ')
+// let a = Number(line[0])
+// let b = Number(line[1])
+// let k = Number(line[2])
 
-function MySet() {
-    var item = {}
-  
-    this.has = function(value) {
-      return DataTransferItemList.hasOwnProperty(value)
-      // return value in items
+function is2(a,b, num) {
+  a = String(a)
+  b = String(b)
+  num = String(num)
+  res = true
+  for(item of num) {
+    if(item != a && item != b) {
+      res = false
     }
-  
-    this.add = function (value) {
-      if(!this[value]) {
-        this[value] = value
-        return true
-      }
-      return false
-    }
-  
-  
-  
   }
-  
-  MySet.prototype = {
-    
-  }
-  
-  
-  var set1 = new MySet()
-  
-  set1.add({})
-  
-  // console.log(new Set([1,1,2,3,sss ,sss]))
-  
-  
+  return res
+}
 
-  
+function is1(a,b, num) {
+  a = String(a)
+  b = String(b)
+  num = String(num)
+  let after = 0
+  res = true
+  for(item of num) {
+    after += Number(item)
+    if(item != a && item != b) {
+      res = false
+    }
+  }
+  if(!res){
+    return false
+  }
+
+  if(is2(a,b, after)) {
+    return true
+  } else {
+    return false
+  }
+}
+
+var count = 0
+
+for(i = 10**(k - 1); i < 10**k; i++) {
+    if(is1(a,b, i)) {
+        count++
+    }
+}
+
+console.log(count)
