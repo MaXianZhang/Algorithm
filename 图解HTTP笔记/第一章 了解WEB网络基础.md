@@ -29,12 +29,10 @@ tcp三次握手如果中断，就会重新发送
 
 扩展链接
 
-URL和URI：资源标识的两种方案
+[URL和URI](https://blog.csdn.net/u011240877/article/details/52052378)：资源标识的两种方案
 
-TCP协议的三次握手和四次挥手：核心的工作方式
+[TCP协议的三次握手和四次挥手](https://blog.csdn.net/smileiam/article/details/78226816)：核心的工作方式
 
-TCP未来的工作方式：有方案替代三次握手吗
+[TCP和UDP的区别](https://blog.csdn.net/Li_Ning_/article/details/52117463)：打字和打电话的区别
 
-TCP和UDP的区别：打字和打电话的区别
-
-如何清除DNS的缓存
+[如何清除DNS的缓存](https://linux.cn/article-3341-1.html)
