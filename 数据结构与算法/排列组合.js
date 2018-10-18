@@ -13,4 +13,3 @@ function demo(dataI, str) {
   })
 }
 demo(0, '')
-
