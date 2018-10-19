@@ -64,9 +64,12 @@ web表单上传时使用
 甚至就像对象中包含对象一样，多部分对象集合的单独一部分还可以是多部分对象集合
 
 扩展
+--
 
 对于get请求方法中一些特殊的字符，比方说?、=、& 这些，jquery是用16进制做了转码，才不会引起参数异常
 
 [Http之实体和编码](https://www.cnblogs.com/xiaohuochai/p/6193614.html)
 
 [Content-range和range的区别](https://codeday.me/bug/20170720/42791.html)
+
+[深入传输编码](https://www.cnblogs.com/plokmju/p/http_code.html)
