@@ -1,0 +1,11 @@
+.e{
+  font-size: 4rem;
+  width: 0rem;
+  border-top: 10rem solid black;
+  border-left: 10rem solid transparent;
+  border-right: 10rem solid transparent;
+  transition: transform .5s ease-out
+}
+.e:hover{
+  transform: rotate(180deg);
+}

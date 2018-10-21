@@ -1,7 +1,9 @@
 function print(data) {
   console.log(data)
 }
-
+function ll(data) {
+  console.log(data)
+}
 // function demo(arr) {
 //   let a = {
 //     life: arr[0],
@@ -111,36 +113,19 @@ function print(data) {
 
 // export default new Credit();
 
+// 计数器，考察活动对象、闭包
+// function demo () {
+//   let counter = 0;
+//   return () =>{
+//     console.log(counter++)
+//   }
+// }
 
-function ll(data) {
-  console.log(data)
-}
-console.log('1');
+// var c1 = demo();
+// var c2 = demo()
 
-setTimeout(function() {
-    console.log('2');
-  
-    new Promise(function(resolve) {
-        console.log('4');
-        resolve();
-    }).then(function() {
-        console.log('5')
-    })
-})
-new Promise(function(resolve) {
-    console.log('7');
-    resolve();
-}).then(function() {
-    console.log('8')
-})
-
-setTimeout(function() {
-    console.log('9');
-  
-    new Promise(function(resolve) {
-        console.log('11');
-        resolve();
-    }).then(function() {
-        console.log('12')
-    })
-})
+// c1()
+// c1()
+// c2()
+// c1()
+// c1()
