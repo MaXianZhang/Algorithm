@@ -1,4 +1,4 @@
-// //接受前端上传来的文件
+// Style-manager uploadfile文件更改
 // const multer = require('multer');
 // const fsSuper = require('./API/fsSuper');
 // const doConfig = require('./API/doConfig');
@@ -146,3 +146,56 @@
 
 //   }
 // };
+
+
+//正则 转进制 
+// var str = '027555+692-0xD32C';
+
+// var arr = str.split(/\+|\-/g)
+// var ddds = str.match(/\+|\-/g)
+
+// var results = arr.map(item => {
+//   var res = item.match(/^0x(\w+)/)
+//   if(res) {
+//     return parseInt(res[1], 16)
+//   }
+
+//   res = item.match(/^0(\w+)/)
+//   if(res) {
+//     return parseInt(res[1], 8)
+//   }
+//   return parseInt(item)
+// })
+// print(results.reduce((pre, cur, index) => {
+//   var ddd = ddds.shift()
+//   if(ddd == "+") {
+//     return pre + cur
+//   }else if(ddd == "-") {
+//     return pre - cur
+//   }
+// }))
+
+// 计数器，考察活动对象、闭包
+// function demo () {
+//   let counter = 0;
+//   return () =>{
+//     console.log(counter++)
+//   }
+// }
+
+// var c1 = demo();
+// var c2 = demo()
+
+// c1()
+// c1()
+// c2()
+// c1()
+// c1()
+
+// 获取最新的年月日
+// var data = new Date()
+
+// ll(data.getFullYear())
+// ll(data.getDate())
+// ll(data.getMonth())
+

@@ -13,7 +13,6 @@ function demo(n, arr) {
 
 }
 
-
 demo(3, [1,2,3])
 
 console.log(count)

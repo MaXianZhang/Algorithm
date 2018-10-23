@@ -25,8 +25,6 @@ class MyPromise {
     } catch(err) {
       reject(this, err)
     }
-
-
   }
 
   then() {
