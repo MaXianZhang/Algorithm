@@ -1,0 +1,8 @@
+#my{
+	-webkit-transition:width 2s;
+	transition:width 2s;
+	-webkit-transition-duration: 10s;
+	        transition-duration: 10s;
+	width: 19px;
+	height: 100px;
+}

@@ -1,0 +1,6 @@
+#my{
+	transition:width 2s;
+	transition-duration: 10s;
+	width: 19px;
+	height: 100px;
+}
