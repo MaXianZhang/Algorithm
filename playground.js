@@ -1,31 +1,18 @@
-function print(data) {
-  console.log(data)
-}
+const { printListFromTailToHead, ToBinary } = require('./数据结构与算法/tools.js')
 function ll(data) {
   console.log(data)
 }
 
-// var outer = 4
+var a = (8).toString(2)
+var b = (-8).toString(2)
 
-// var iife = (function (data) {
-//   var outer = data
-//   console.log('inner:', outer)
-// })(1)
+ll(Array(32).join("0")+ (-8).toString(2).slice(-32))
 
-// print(outer)
+// console.log(printListFromTailToHead({val: 2, next: null}))
+// console.log(printListFromTailToHead({val: 2, next: {
+//   val: 1,
+// }}))
 
 
 
-function Demo (age) {
-  this.name = age
 
-  this.func()
-}
-Demo.prototype.name = 'kkk'
-Demo.prototype.func = function() {
-  this.name++
-}
-
-var demo01 = new Demo(0)
-console.log(demo01.func())
-console.log(demo01)
