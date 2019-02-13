@@ -1,5 +1,5 @@
 const data = [[1,3], [3,4,6,2], [4,3,4,9]];
-function demo(dataI, str) {
+function 排列组合(dataI, str) {
   if(data[dataI])
     var arr = data[dataI]
   else
@@ -9,7 +9,9 @@ function demo(dataI, str) {
   arr.forEach(item => {
     if(dataI == data.length)
       console.log(str + item)
-    demo(next, str + item + ' ')
+      排列组合(next, str + item + ' ')
   })
 }
-demo(0, '')
+排列组合(0, '')
+
+

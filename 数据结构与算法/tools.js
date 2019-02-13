@@ -14,15 +14,6 @@ function replaceG(str, target, reStr) {
   return str.replace(new RegExp(target, 'g') , reStr)
 }
 
-//遍历链表
-function printListFromTailToHead(head) {
-    let [res, cur] = [[], head]
-    while (cur != null) {
-        res.push(cur.val);
-        cur = cur.next;
-    }
-    return res.reverse();
-}
 
 //计数器
 function CreateCounter() {
@@ -61,13 +52,21 @@ function Fibonacci(number){
 
 //转换为二进制，负数取补码
 function ToBinary(n, detial = 2) {
-  return n.toString(detial)
+  if(n >= 0) return n.toString(detial)
+  else {
+    let jjj = n.toString(detial)
+    let res = ''
+    for(item of jjj) {
+      if(item == 1) res += 0
+      if(item == 0) res += 1
+    }
+    return res
+  }
 }
 
 
 module.exports = {
   Find,
-  printListFromTailToHead,
   replaceG,
   CreateCounter,
   GetMedian,

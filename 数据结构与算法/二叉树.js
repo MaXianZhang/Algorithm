@@ -144,8 +144,6 @@ demo.insert(18)
 demo.insert(25)
 demo.insert(6)
 
-
-
 // 中序遍历
 function inOrderTraverseNode(node, callback) {
   if (node !== null) {
@@ -173,6 +171,81 @@ function postOrderTraverseNode(node, callback) {
   }
 }
 
+// 一个二叉树是否包含另一个二叉树，用了两个递归
+function HasSubtree(pRoot1, pRoot2) {
+  // 递归：遍历大树
+  // 出口：节点为null，遍历到了低端
+  if(!pRoot1 || !pRoot2) return false
+  else return isSameTree(pRoot1, pRoot2)
+    || HasSubtree(pRoot1.left, pRoot2) 
+    || HasSubtree(pRoot1.right, pRoot2) 
+}
+ 
+function isSameTree(root1, root2) {
+  if(!root2) return true
+  if(!root1) return false
+
+  if(root1.val !== root2.val) return false
+  else return isSameTree(root1.left, root2.left) 
+    && isSameTree(root1.right, root2.right) 
+}
+
+//根据中序遍历和先序遍历，重新排布二叉树
+function reConstructBinaryTree(pre, vin) {
+  if (vin.length == 0) return null
+  let root = pre.shift()
+  let position = vin.indexOf(root)
+  let [vinLeft, vinRight] = [vin.slice(0, position), vin.slice(position + 1)]
+  let [preLeft, preRight] = [pre.slice(0, position), pre.slice(position)]
+ 
+  return {
+    val: root,
+    left: reConstructBinaryTree(preLeft, vinLeft),
+    right: reConstructBinaryTree(preRight, vinRight)
+  }
+}
+
+// 镜像二叉树
+function Mirror(root) {
+  if (!root) return
+  [root.left, root.right] = [root.right, root.left]
+  Mirror(root.left)
+  Mirror(root.right)
+}
+//广度遍历二叉树
+function PrintFromTopToBottom(root) {
+  var stack = []
+  var res = []
+  if(root) stack.push(root)
+  while(stack.length > 0 ) {
+    root = stack.shift()
+    if (root.left) stack.push(root.left)
+    if (root.right) stack.push(root.right)
+   
+    res.push(root.val)
+  }
+  return res
+}
+
 // demo.remove(25)
 
 // console.log(demo.findMax())
+
+// var demo = { val: 1,
+//   left:
+//   { val: 5,
+//     left: { val: 3, left: null, right: null },
+//     right: { val: 4, left: {
+//       val: 2
+//     }, right: null } } ,
+//   right:
+//    { val: 5,
+//      left: { val: 4, left: null, right: null },
+//      right: { val: 3, left: {
+//        val: 2
+//      }, right: null } } 
+// }
+
+// function VerifySquenceOfBST(sequence) {
+//   // write code here
+// }

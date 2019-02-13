@@ -117,3 +117,91 @@ class LinkedList {
     return this.removeAt(index)
   }
 }
+
+//遍历链表
+function printListFromTailToHead(head) {
+  let [res, cur] = [[], head]
+  while (cur != null) {
+      res.push(cur.val);
+      cur = cur.next;
+  }
+  return res.reverse();
+}
+
+//输出一个链表的倒数第k个值
+function FindKthToTail(head, k) {
+  let [cur, store] = [head, []]
+  while(cur) {
+    store.push(cur)
+    cur = cur.next
+  }
+  return store[store.length - k]
+}
+
+//反转链表
+function ReverseList(pHead) {
+  let [pre, cur] = [null, pHead]
+  while(cur) {
+    var next = cur.next
+    cur.next = pre
+    [pre, cur] = [cur, next]
+  }
+  return pre
+}
+
+
+//合并两个单调递增的链表，合并后的链表单调递增
+function MergeList(pHead1, pHead2) {
+  if(!pHead1) return pHead2;
+  if(!pHead2) return pHead1;
+  let [smaller, larger] = [pHead1, pHead2].sort((a, b) => {
+    return a.val - b.val
+  })
+  smaller.next = Merge(smaller.next, larger)
+  return smaller
+}
+
+//克隆一个复杂链表
+function CloneList(pHead) {
+  let cur = pHead
+  while(cur) {
+    var next = cur.next
+    var copy = cur.next = new RandomListNode(cur.label)
+    copy.next = next
+    cur = next
+  }
+
+
+  cur = pHead
+  let random = null
+  while(cur) {
+    if(cur.random) {
+      random = cur.random
+    } else {
+      cur.random = random.next
+    }
+    cur = cur.next
+  }
+
+  cur = pHead = pHead.next
+  let key = false
+  let pre = null
+  while(cur) {
+    if(key) {
+      pre.next = cur.next
+    } else {
+      pre = cur
+    }
+    key = !key
+    cur = cur.next
+  }
+
+  var stack = []
+  cur = pHead
+  while(cur) {
+    stack.push(cur)
+    cur = cur.next
+  }
+
+  return pHead
+}
