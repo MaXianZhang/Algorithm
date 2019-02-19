@@ -14,4 +14,23 @@ function 排列组合(dataI, str) {
 }
 排列组合(0, '')
 
+//栈的压入和弹出序列
+function IsPopOrder(pushV, popV) {
+  var stack = [];
+  var idx = 0;
+  pushV.forEach(item => {
+
+    stack.push(item);
+    while (stack.length && stack[stack.length - 1] == popV[idx]) {
+      console.log(stack)
+      stack.pop()
+      
+      idx++;
+    }
+  })
+  return stack.length == 0;
+}
+// 测试用例
+// console.log(IsPopOrder([1,2,3,4,5], [4,5,3,2,1]))
+
 

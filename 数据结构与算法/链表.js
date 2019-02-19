@@ -160,6 +160,28 @@ function MergeList(pHead1, pHead2) {
   smaller.next = Merge(smaller.next, larger)
   return smaller
 }
+//复杂链表的测试用例
+function RandomListNode(x){
+  this.label = x;
+  this.next = null;
+  this.random = null;
+}
+var list = new RandomListNode(0)
+var list1 = new RandomListNode(1)
+var list2 = new RandomListNode(2)
+var list3 = new RandomListNode(3)
+var list4 = new RandomListNode(4)
+
+list.next = list1
+list1.next = list2
+list2.next = list3
+list3.next = list4
+
+list.random = list2
+list1.random = list2
+list2.random = list1
+list3.random = list4
+list4.random = list3
 
 //克隆一个复杂链表
 function CloneList(pHead) {
