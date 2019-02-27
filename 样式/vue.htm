@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue生命周期学习</title>
+  <script src="https://cdn.bootcss.com/vue/2.6.0/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>一个demo</div>
+    <current-user>
+      <template v-slot="{ user }">
+      {{ user.xing }}
+      </template>
+    </current-user>
+  </div>
+</body>
+<script>
+var currentUser = Vue.component('current-user', {
+  data:()=>( {
+    user: {
+      xing: '张',
+      ming: '旭'
+    }
+  }),
+  template: `
+  <span>
+  <slot :user="user">{{ user.ming }}</slot>
+</span>`,
+})
+
+
+var demo = new Vue({
+  data: {
+
+  },
+  components: {
+    currentUser,
+  },
+  el: '#app',
+
+})
+</script>
+</html>

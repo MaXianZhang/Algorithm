@@ -1,12 +1,12 @@
-function Node(key) {
-  this.key = key
+function Node(val) {
+  this.val = val
   this.left = null
   this.right = null
 }
 
 //辅助函数，用递归去寻找元素该去的位置
 function insertNode(node, newNode) {
-  if (newNode.key < node.key) {
+  if (newNode.val < node.val) {
     if (node.left === null) {
       node.left = newNode
     } else {
@@ -22,14 +22,14 @@ function insertNode(node, newNode) {
 }
 
 //辅助函数，用递归去寻找元素所在的位置
-function searchNode(node, key) {
+function searchNode(node, val) {
   if(node == null) {
     return false
   } 
-  if (key < node.key) {
-    return searchNode(node.left, key)
-  } else if (key > node.key) {
-    return searchNode(node.right, key)
+  if (val < node.val) {
+    return searchNode(node.left, val)
+  } else if (val > node.val) {
+    return searchNode(node.right, val)
   } else {
     return true
   }
@@ -56,17 +56,17 @@ function minNode(node) {
 }
 
 //辅助函数，用递归去删除相应元素
-function removeNode(node, key) {
+function removeNode(node, val) {
 
   if (node == null) {
     return null
   }
 
-  if(key < node.key) {
-    node.left = removeNode(node.left, key)
+  if(val < node.val) {
+    node.left = removeNode(node.left, val)
     return node
-  } else if (key > node.key) {
-    node.right = removeNode(node.right, key)
+  } else if (val > node.val) {
+    node.right = removeNode(node.right, val)
     return node
   } else {
     //这里找到了要删除的元素
@@ -87,9 +87,9 @@ function removeNode(node, key) {
 
     //第三种情况，一个有两个子节点的节点
     const min = minNode(node)
-    const key = min.key
-    removeNode(node.right, key)
-    node.key = key
+    const val = min.val
+    removeNode(node.right, val)
+    node.val = val
     return node
   }
 }
@@ -99,8 +99,8 @@ class BinarySearchTree {
     this.root = null
   }
 
-  insert(key) {
-    const newNode = new Node(key)
+  insert(val) {
+    const newNode = new Node(val)
 
     if (this.root === null) {
       this.root = newNode
@@ -109,12 +109,12 @@ class BinarySearchTree {
     }
   }
 
-  search (key) {
-    return searchNode(this.root, key)
+  search (val) {
+    return searchNode(this.root, val)
   }
 
-  remove(key) {
-    this.root = removeNode(this.root, key)
+  remove(val) {
+    this.root = removeNode(this.root, val)
   }
 
   findMax() {
@@ -144,11 +144,15 @@ demo.insert(18)
 demo.insert(25)
 demo.insert(6)
 
+// demo.remove(25)
+
+// console.log(demo.findMax())
+
 // 中序遍历
 function inOrderTraverseNode(node, callback) {
   if (node !== null) {
     inOrderTraverseNode(node.left, callback)
-    callback(node.key);
+    callback(node.val);
     inOrderTraverseNode(node.right, callback)
   }
 }
@@ -156,7 +160,7 @@ function inOrderTraverseNode(node, callback) {
 //先序遍历
 function preOrderTraverseNode(node, callback) {
   if (node !== null) {
-    callback(node.key);
+    callback(node.val);
     inOrderTraverseNode(node.left, callback)
     inOrderTraverseNode(node.right, callback)
   }
@@ -167,7 +171,7 @@ function postOrderTraverseNode(node, callback) {
   if (node !== null) {
     inOrderTraverseNode(node.left, callback)
     inOrderTraverseNode(node.right, callback)
-    callback(node.key);
+    callback(node.val);
   }
 }
 
@@ -205,6 +209,7 @@ function reConstructBinaryTree(pre, vin) {
   }
 }
 
+
 // 镜像二叉树
 function Mirror(root) {
   if (!root) return
@@ -227,25 +232,38 @@ function PrintFromTopToBottom(root) {
   return res
 }
 
-// demo.remove(25)
+// 判断一个遍历结果是不是一个搜索二叉树的后序遍历
+function VerifySquenceOfBST(arr) {
+  if (arr.length == 0) return true
+  let root = arr.pop()
+  let i = 0
+  let len = arr.length
+  while(i < len && arr[i] < root) i++
+  let res = arr.slice(i).every(item => item > root)
+  let [left, right] = [arr.slice(0, i), arr.slice(i)]
+  return res && VerifySquenceOfBST(left) && VerifySquenceOfBST(right)
+}
 
-// console.log(demo.findMax())
+// 遍历所有的二叉树路径
+var dict = []
+function getAllPath(node, stack = []) {
+  if(node && !node.left && !node.right) {
+    dict.push(stack.concat(node.val))
+    return
+  }
+  if (node !== null) {
+    getAllPath(node.left, stack.concat(node.val))
+    getAllPath(node.right, stack.concat(node.val))
+  }
+}
 
-// var demo = { val: 1,
-//   left:
-//   { val: 5,
-//     left: { val: 3, left: null, right: null },
-//     right: { val: 4, left: {
-//       val: 2
-//     }, right: null } } ,
-//   right:
-//    { val: 5,
-//      left: { val: 4, left: null, right: null },
-//      right: { val: 3, left: {
-//        val: 2
-//      }, right: null } } 
-// }
 
-// function VerifySquenceOfBST(sequence) {
-//   // write code here
-// }
+module.exports = {
+  HasSubtree,
+  isSameTree,
+  reConstructBinaryTree,
+  Mirror,
+  PrintFromTopToBottom,
+  VerifySquenceOfBST,
+  getAllPath,
+}

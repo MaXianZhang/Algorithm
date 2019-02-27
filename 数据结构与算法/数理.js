@@ -14,12 +14,10 @@ Math.add = function(arr) {
   return arr.reduce((pre, cur) =>  pre + cur)
 }
 
-
 // 替换一个字符串中所有目标片段
 function replaceG(str, target, reStr) {
   return str.replace(new RegExp(target, 'g') , reStr)
 }
-
 
 //计数器
 function CreateCounter() {
@@ -46,17 +44,6 @@ function GetMax(arr) {
   return Math.max(...arr)
 }
 
-// 斐波那契数列
-// 适用于二阶跳台阶、2层矩形覆盖等递归问题f(n) = f(n - 1) + f(n - 2)
-function Fibonacci(number){
-  if(number == 0) return 0
-  let [pre, cur] = [0, 1]
-  for(let i = 0; i < number; i++) {
-      [pre, cur] = [cur, cur + pre]
-  }
-  return cur
-}
-
 //转换为二进制，负数取补码
 function ToBinary(n, detial = 2) {
   if(n >= 0) return n.toString(detial)
@@ -70,6 +57,24 @@ function ToBinary(n, detial = 2) {
     return res
   }
 }
+
+function IsPopOrder(pushV, popV) {
+  var stack = [];
+  var idx = 0;
+  pushV.forEach(item => {
+
+    stack.push(item);
+    while (stack.length && stack[stack.length - 1] == popV[idx]) {
+      console.log(stack)
+      stack.pop()
+      
+      idx++;
+    }
+  })
+  return stack.length == 0;
+}
+// 测试用例
+// console.log(IsPopOrder([1,2,3,4,5], [4,5,3,2,1]))
 
 // 连续子数组的最大和
 function FindGreatestSumOfSubArray(arr) {
@@ -234,6 +239,29 @@ function FindContinuousSequence(sum) {
   return stack.reverse()
 }
 
+// 两个栈模拟实现队列
+const cur = []
+const pocket = []
+
+
+function push(node) {
+  cur.push(node)
+  return cur.length
+}
+
+function pop() {
+  let len = cur.length
+  for(var i = 0; i < len; i++) {
+    pocket.push(cur.pop())
+  }
+  const res = pocket.pop()
+  len = pocket.length
+  for(var i = 0; i < len; i++) {
+    cur.push(pocket.pop())
+  }
+  return res
+}
+
 module.exports = {
   Find,
   replaceG,
@@ -241,7 +269,6 @@ module.exports = {
   GetMedian,
   GetMin,
   GetMax,
-  Fibonacci,
   ToBinary,
   FindGreatestSumOfSubArray,
   NumberOf1Between1AndN_Solution,
