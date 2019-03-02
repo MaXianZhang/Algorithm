@@ -239,28 +239,50 @@ function FindContinuousSequence(sum) {
   return stack.reverse()
 }
 
+// 大数相加
+function Badd(A, B) {
+  [A, B] = [A.split(''), B.split('')]
+  let Acount, Bcount;
+  let jin = 0
+  let res = []
+  do {
+    [Acount, Bcount] = [A.splice(-1), B.splice(-1)]
+    let [cur, pre] = String(Number(Acount) + Number(Bcount) + jin).split('').reverse()
+    res.unshift(cur)
+    if (pre) jin = 1
+    else jin = 0
+  } while(A.length > 0, B.length > 0)
+  return A.join('') + B.join('') + res.join('')
+}
+
+var A = '2131233123'
+var B = '12312318'
+
+// console.log(Badd(A, B))
+// console.log(Number(A) + Number(B))
+
+
 // 两个栈模拟实现队列
-const cur = []
-const pocket = []
+// const cur = []
+// const pocket = []
 
+// function push(node) {
+//   cur.push(node)
+//   return cur.length
+// }
 
-function push(node) {
-  cur.push(node)
-  return cur.length
-}
-
-function pop() {
-  let len = cur.length
-  for(var i = 0; i < len; i++) {
-    pocket.push(cur.pop())
-  }
-  const res = pocket.pop()
-  len = pocket.length
-  for(var i = 0; i < len; i++) {
-    cur.push(pocket.pop())
-  }
-  return res
-}
+// function pop() {
+//   let len = cur.length
+//   for(var i = 0; i < len; i++) {
+//     pocket.push(cur.pop())
+//   }
+//   const res = pocket.pop()
+//   len = pocket.length
+//   for(var i = 0; i < len; i++) {
+//     cur.push(pocket.pop())
+//   }
+//   return res
+// }
 
 module.exports = {
   Find,

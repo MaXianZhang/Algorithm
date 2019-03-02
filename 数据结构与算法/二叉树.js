@@ -161,16 +161,16 @@ function inOrderTraverseNode(node, callback) {
 function preOrderTraverseNode(node, callback) {
   if (node !== null) {
     callback(node.val);
-    inOrderTraverseNode(node.left, callback)
-    inOrderTraverseNode(node.right, callback)
+    preOrderTraverseNode(node.left, callback)
+    preOrderTraverseNode(node.right, callback)
   }
 }
 
 //后续遍历
 function postOrderTraverseNode(node, callback) {
   if (node !== null) {
-    inOrderTraverseNode(node.left, callback)
-    inOrderTraverseNode(node.right, callback)
+    postOrderTraverseNode(node.left, callback)
+    postOrderTraverseNode(node.right, callback)
     callback(node.val);
   }
 }
@@ -244,6 +244,29 @@ function VerifySquenceOfBST(arr) {
   return res && VerifySquenceOfBST(left) && VerifySquenceOfBST(right)
 }
 
+//二叉树的深度
+function TreeDepth(root) {
+  if(!root) return 0
+  return Math.max(1 + TreeDepth(root.left), 1 + TreeDepth(root.right))
+}
+
+// 平衡二叉树
+var key = true
+function IsBalanced(node) {
+    if (!node) return true
+    key = true
+    IsBalanced_helper(node)
+    return key
+}
+
+function IsBalanced_helper(node) {
+    if (!node) return 0
+    var leftLen = IsBalanced_helper(node.left)
+    var rightLen = IsBalanced_helper(node.right)
+    if (Math.abs(leftLen - rightLen) > 1) key = false
+    return 1 + ((leftLen - rightLen > 0) ? leftLen : rightLen)
+}
+
 // 遍历所有的二叉树路径
 var dict = []
 function getAllPath(node, stack = []) {
@@ -265,5 +288,7 @@ module.exports = {
   Mirror,
   PrintFromTopToBottom,
   VerifySquenceOfBST,
+  TreeDepth,
+  IsBalanced,
   getAllPath,
 }

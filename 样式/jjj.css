@@ -1,11 +1,39 @@
-.e{
-  font-size: 4rem;
-  width: 0rem;
-  border-top: 10rem solid black;
-  border-left: 10rem solid transparent;
-  border-right: 10rem solid transparent;
-  transition: transform .5s ease-out
+/* <div id="app">
+    <header>
+      <div class="holder"></div>
+    </header>
+</div> */
+
+/* #app{
+  display: flex;
 }
-.e:hover{
-  transform: rotate(180deg);
+
+header{
+  flex: 1 1 100px;
+  background: red;
+  margin:0 5px;
+
+  百分比相对父元素宽度计算 
 }
+.holder{
+  margin-top: 100%;
+} */
+
+#app{
+  margin: 0 10px;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header{
+  margin-top: 50%;
+}
+
+.inner{
+  width: 100px;
+  height: 100px;
+}
+
+
