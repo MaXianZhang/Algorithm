@@ -1,5 +1,5 @@
 var Arr = [3, 5, 6, 7, 9, 12, 15];
-function binary(find, arr, low, high) {
+function binary(find, arr, low, high) { 
   if (!low <= high) return -1;
 
   if (arr[low] == find) return low;

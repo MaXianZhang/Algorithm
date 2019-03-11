@@ -27,7 +27,7 @@
 
 // START
 // 原型链继承
-
+// 存在引用类型被公用的问题
 // function Player() {
 //   this.cards = ['雪女']
 // }
@@ -47,7 +47,7 @@
 
 // START
 // 借用构造函数继承，还解决了原型链继承会更改公用引用类型的值的缺陷
-// 改变一个函数的this
+// 借用别人的构造函数，用的是自己的this，所以每次创建实例时，所以依赖的引用都是新的
 
 // function Foo() {
 //   this.colors = ['red', 'black', 'green']
@@ -67,6 +67,9 @@
 
 // START
 // 组合继承，有时候也叫伪经典继承
+// 借用人家的构造函数的同时，把自己的prototype指向人家的实例
+// 最后我们构造出来的对象有了爸爸，还有了爷爷
+// 这样依赖，我们不仅克隆了人家的引用类型的属性，还可以使用人家prototype的方法
 
 // Player.prototype.jjj = function() {
 //   this.cards.push('白童子')
@@ -79,7 +82,6 @@
 // Son.prototype = new Player()
 // Son.prototype.constructor = Son
 
-
 // function Son() {
 //   Player.call(this)
 // }
@@ -90,29 +92,8 @@
 
 // player1.cards.push('黑童子')
 // player1.jjj()
-// console.log(player1)
-
-// END
-
-// START
-// 原型式继承，引用bug
-
-// var foo = {
-//   func: () => {
-//     console.log('2222')
-//   },
-//   name: 111,
-//   arr: [ '雪女', '黑童子', '白童子' ],
-// }
-
-// var son = Object.create(foo)
-// console.log(son.__proto__ == foo)
-
-// console.log(son)
-// son.arr.push('jjj')
-// console.log(foo.arr)
-// console.log(son.arr)
-// son.func()
+// console.log(player1.cards)
+// console.log(player1.__proto__.__proto__ == Player.prototype)
 
 // END
 
@@ -139,29 +120,29 @@
 // START
 // 寄生组合式继承
 
-// function inherit(Son, Foo) {
-//   function F() {}
-//   F.prototype = Foo.prototype
-//   const prototype = new F()
-//   prototype.constructor = Son
-//   Son.prototype = prototype
-// }
+function inherit(Son, Foo) {
+  function F() {}
+  F.prototype = Foo.prototype
+  const prototype = new F()
+  prototype.constructor = Son
+  Son.prototype = prototype
+}
 
-// function Foo(name){
-//   this.name = name
-//   this.colors = ['red','blue','yellow'];
-// }
-// Foo.prototype.hh = () => {
-//   console.log('8888')
-// }
+function Foo(name){
+  this.name = name
+  this.colors = ['red','blue','yellow'];
+}
+Foo.prototype.hh = () => {
+  console.log('8888')
+}
 
-// function Son(age) {
-//   Foo.call(this);     //通过构造函数继承实例属性
-//   this.age = age;
-// }
-// const son = new Son()
-// inherit(Son, Foo)
+function Son(age) {
+  Foo.call(this);     //通过构造函数继承实例属性
+  this.age = age;
+}
+const son = new Son()
+inherit(Son, Foo)
 
-// console.log(son)
+console.log(son)
 
 // END

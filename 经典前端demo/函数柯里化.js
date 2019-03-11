@@ -1,29 +1,21 @@
-// function add(num1, num2){
-//   return num1 + num2
-// }
+function add(){
+  console.log(this.name)
+  return [...arguments].reduce((pre, cur) => pre + cur)
+}
 
-// Function.prototype.curry = function (obj){
-//   var me = this
-//   var fatherArgus = Array.prototype.slice.call(arguments, 1)
-//   return function() {
-//     var innerArgus = Array.prototype.slice.call(arguments)
-//     var allArgus = [...fatherArgus, ...innerArgus]
-//     console.log(allArgus)
-//     return me.apply(obj, allArgus)
-//   }
-// }
+Function.prototype.Mybind = function () {
+  let func = this
+  let args = Array.from(arguments)
+  let context = args.shift()
+  return function () {
+    let newArgs = Array.from(arguments)
+    console.log(args, newArgs)
+    return func.apply(context, args.concat(newArgs))
+  }
+}
+var curriedAdd = add.Mybind({name: 909}, 6)
 
-// Function.prototype.Mybind = function () {
-//   let args = Array.from(arguments)
-//   let context = args.shift()
-//   return () => {
-//     let newArgs = Array.from(arguments)
-//     this.apply(context, args.concat(newArgs))
-//   }
-// }
-
-// var curriedAdd = add.curry(this, 6)
-// console.log(curriedAdd(1,2))
+console.log(curriedAdd(1,2))
 
 
 //花式传参
@@ -36,7 +28,7 @@ function createCurry(func, args = []) {
 
   return function () {
     //拼接参数(类数组转化为数组)
-      let newArgs = [].slice.call(arguments).concat(args);
+      let newArgs = Array.from(arguments).concat(args);
 
       // 如果参数个数小于最初的func.length，则递归调用，继续收集参数
       if (newArgs.length < len) {
@@ -50,7 +42,9 @@ function createCurry(func, args = []) {
 
 demo = createCurry(_add)
 
-console.log( demo(2)(4,3) )
-console.log( demo(2)(4)(3) )
-console.log( demo(2,4,3))
-console.log( demo(2,4)(3) )
+// console.log( demo(2)(4,3) )
+// console.log( demo(2)(4)(3) )
+// console.log( demo(2,4,3))
+// console.log( demo(2,4)(3) )
+
+

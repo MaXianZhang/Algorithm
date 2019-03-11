@@ -8,6 +8,16 @@ function bug () {
   }
 }
 
+function a () {
+  for (var i = 0; i < 5; i++) {
+    this.i = i
+    setTimeout(function (){
+      console.log(this.i)
+    }.bind({i}), 500)
+    console.log(this.i)
+  }
+}
+
 function b () {
   for (var i = 0; i < 5; i++) {
     ((i) =>{
@@ -39,15 +49,4 @@ function d () {
     console.log(this.i)
   }
 }
-
-function e () {
-  for (var i = 0; i < 5; i++) {
-    this.i = i
-    setTimeout(function (){
-      console.log(this.i)
-    }.bind({i}), 500)
-    console.log(this.i)
-  }
-}
-
 bug()

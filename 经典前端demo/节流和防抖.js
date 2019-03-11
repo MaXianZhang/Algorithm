@@ -7,7 +7,7 @@ function fangdou(f, timeLimit) {
     }
 
     timer = setTimeout(() => {
-      f.apply(this, ...arguments)
+      f.call(this, ...arguments)
     }, timeLimit)
   }
 }

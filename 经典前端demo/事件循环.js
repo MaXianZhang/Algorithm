@@ -32,13 +32,13 @@ console.log('script end')
 
 //执行栈1
 'script start'
-// setTimeout进入任务队列
-// promise1进入任务队列
+// setTimeout 进入任务队列
+// promise1 进入任务队列
 'a1 start'
 'a2'
 // await后的代码（a1 end）进入任务队列
 'promise2'
-// promise2.then进入任务队列
+// promise2.then 进入任务队列
 'script end'
 //执行栈1结束
 

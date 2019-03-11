@@ -20,7 +20,7 @@ function getName(){
 // ouput:
 Foo.getName();
 getName();
-// Foo().getName();
+// Foo().getName();z
 getName();
 new Foo.getName();
 new Foo().getName();

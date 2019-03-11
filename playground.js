@@ -4,43 +4,43 @@ function ll() {
   console.log(...arguments)
 }
 
-var demo = { val: 1,
-  left: { 
-    val: 2,
-    left: { 
-      val: 3, 
-      left: null,
-      right: null 
-    },
-    right: { 
-      val: 4, 
-      left: null, 
-    } 
-  } ,
-  right: { 
-    val: 6,
-    left: { 
-      val: 7, 
-      // left: {
-      //   val: 8,
-      //   left:{
-      //     val:9,
-      //     left:{
-      //       val: 10,
-      //     }
-      //   }
-      // }, 
-      right: null 
-    },
-    right: { 
-      val: 11, 
-      left: {
-        val: 12
-      }, 
-      right: null 
-    } 
-  } 
-}
+// var demo = { val: 1,
+//   left: { 
+//     val: 2,
+//     left: { 
+//       val: 3, 
+//       left: null,
+//       right: null 
+//     },
+//     right: { 
+//       val: 4, 
+//       left: null, 
+//     } 
+//   } ,
+//   right: { 
+//     val: 6,
+//     left: { 
+//       val: 7, 
+//       // left: {
+//       //   val: 8,
+//       //   left:{
+//       //     val:9,
+//       //     left:{
+//       //       val: 10,
+//       //     }
+//       //   }
+//       // }, 
+//       right: null 
+//     },
+//     right: { 
+//       val: 11, 
+//       left: {
+//         val: 12
+//       }, 
+//       right: null 
+//     } 
+//   } 
+// }
 
 function find() {
   //找到起始字符的位置，返回坐标们

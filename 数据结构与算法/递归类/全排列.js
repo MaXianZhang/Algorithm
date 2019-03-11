@@ -4,7 +4,7 @@ function Permutation(str){
     if(str.length<=0) return result;
     var sortTmp = "";
     var arr = str.split("");
-    result = sortString(arr,sortTmp)
+    result = sortString(arr, sortTmp)
     return result;
 }
  
@@ -17,7 +17,7 @@ function sortString(arr,sortTmp){
             if(!isRepeated[arr[i]]){
                 var p = arr.splice(i,1)[0];
                 sortTmp += p;
-                ll(arr, sortTmp, i)
+                ll(arr, sortTmp,  i)
 
                 sortString(arr,sortTmp);
                 arr.splice(i,0,p); //恢复字符串
