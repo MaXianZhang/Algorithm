@@ -1,2 +1,0 @@
-var mypack = require('./mypack');
-

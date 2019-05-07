@@ -1,5 +1,0 @@
-{
-	"name": "mypack",
-	"version" : "1.1.1",
-	"entry" :"./index.js"
-}
