@@ -22,7 +22,7 @@ function turn(arr, from, to) {
 }
 
 let d = Date.now()
-console.log(qSort([41,3,21,7,8,94,345,2,13,234,123,52,3,45]))
-console.log(Date.now() - d)
+console.log(quickSort([41,3,21,7,8,94,345,2,13,234,123,52,3,45]))
+console.log('用时:', Date.now() - d)
 
 
