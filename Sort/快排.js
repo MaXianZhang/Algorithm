@@ -6,10 +6,10 @@ function quickSort(nums, i = 0, j = nums.length - 1) {
   while (i !== j) {
     while (nums[j] >= mark && i < j) j--
     while (nums[i] <= mark && i < j) i++
-    if (i < j) turn(nums, i, j)
+    turn(nums, i, j)
   }
 
-  turn(nums, start, j)
+  turn(nums, start, i)
   quickSort(nums, start, i - 1)
   quickSort(nums, i + 1, end)
 
@@ -22,7 +22,7 @@ function turn(arr, from, to) {
 }
 
 let d = Date.now()
-console.log(quickSort([41,3,21,7,8,94,345,2,13,234,123,52,3,45]))
-console.log('用时:', Date.now() - d)
+console.log(quickSort([41,3,21,7,8,8,8,94,345,2,13,234,123,52,3,45]))
+console.log('用时:%jms', Date.now() - d)
 
 
