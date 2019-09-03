@@ -1,3 +1,31 @@
+let demo = ['a', 'b', 'b']
+let len = demo.length
+
+let arr = [], book = []
+
+function dfs(step) {
+    if (step == len) {
+        console.log(arr)
+        return 
+    }
+    for (let i = 0; i < len; i++) {
+        let cur = demo[i]
+        if(!book[i]) {
+            // && arr.indexOf(cur) !== -1
+            arr[step] = cur
+            book[i] = cur
+        console.log('book', book)
+
+            dfs(step + 1)
+            book[i] = 0
+        }
+    }
+}
+
+
+
+
+dfs(0)
 // var result = [];
 // function Permutation(str){
 //     result = []
@@ -30,30 +58,4 @@
 // }
 
 // console.log(Permutation('abcd'))
-
-let demo = ['a', 'b', 'b']
-let len = demo.length
-
-let arr = [], book = []
-
-function dfs(step) {
-    if (step == len) {
-        console.log(arr)
-        return 
-    }
-    for (let i = 0; i < len; i++) {
-        let cur = demo[i]
-        if(!book[i]) {
-            // && arr.indexOf(cur) !== -1
-            arr[step] = cur
-            book[i] = cur
-        console.log('book', book)
-
-            dfs(step + 1)
-            book[i] = 0
-        }
-    }
-}
-
-dfs(0)
 
