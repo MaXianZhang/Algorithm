@@ -118,6 +118,16 @@ class LinkedList {
   }
 }
 
+// 将数组转化为链表
+function arrToLink(arr = []) {
+  let link = {}
+  const head = link
+  arr.forEach(val => {
+    link = link.next = { val }
+  })
+  return head
+}
+
 //遍历链表
 function printListFromTailToHead(head) {
   let [res, cur] = [[], head]
@@ -150,16 +160,22 @@ function ReverseList(pHead) {
 }
 
 
-//合并两个单调递增的链表，合并后的链表单调递增
-function MergeList(pHead1, pHead2) {
-  if(!pHead1) return pHead2;
-  if(!pHead2) return pHead1;
-  let [smaller, larger] = [pHead1, pHead2].sort((a, b) => {
-    return a.val - b.val
-  })
-  smaller.next = Merge(smaller.next, larger)
-  return smaller
+// 合并两个单调递增的链表，合并后的链表单调递增
+// 逻辑重复不仅可以用循环，递归会更易懂
+function mergeTwoLists(pHead1, pHead2) {
+  if (!pHead1) return pHead2;
+  if (!pHead2) return pHead1;
+
+  if (pHead1.val < pHead2.val) {
+    pHead1.next = mergeTwoLists(pHead1.next, pHead2)
+    return pHead1
+  } else {
+    pHead2.next = mergeTwoLists(pHead2.next, pHead1)
+    return pHead2
+  }
 }
+
+
 //复杂链表的测试用例
 function RandomListNode(x){
   this.label = x;

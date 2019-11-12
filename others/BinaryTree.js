@@ -4,7 +4,7 @@ function Node(val) {
   this.right = null
 }
 
-//辅助函数，用递归去寻找元素该去的位置
+//辅助函数，用递归去寻找元素该插入的位置
 function insertNode(node, newNode) {
   if (newNode.val < node.val) {
     if (node.left === null) {
@@ -21,7 +21,7 @@ function insertNode(node, newNode) {
   }
 }
 
-//辅助函数，用递归去寻找元素所在的位置
+//辅助函数，用递归去判断元素的有无
 function searchNode(node, val) {
   if(node == null) {
     return false
@@ -166,7 +166,7 @@ function preOrderTraverseNode(node, callback) {
   }
 }
 
-//后续遍历
+//后序遍历
 function postOrderTraverseNode(node, callback) {
   if (node !== null) {
     postOrderTraverseNode(node.left, callback)
@@ -197,11 +197,15 @@ function isSameTree(root1, root2) {
 //根据中序遍历和先序遍历，重新排布二叉树
 function reConstructBinaryTree(pre, vin) {
   if (vin.length == 0) return null
+  // 每次递归，先序遍历的第一位都是根节点
+  // 边界：如果pre和vin都剩1个值了，那root就是这个节点的值
   let root = pre.shift()
+  // 找到根节点在中序遍历的位置，断成两部分
   let position = vin.indexOf(root)
   let [vinLeft, vinRight] = [vin.slice(0, position), vin.slice(position + 1)]
   let [preLeft, preRight] = [pre.slice(0, position), pre.slice(position)]
  
+  // 边界：如果pre和vin都剩1个值了，左右自然返回为null
   return {
     val: root,
     left: reConstructBinaryTree(preLeft, vinLeft),
@@ -275,6 +279,7 @@ function getAllPath(node, stack = []) {
     return
   }
   if (node !== null) {
+    // concat返回新的数组，顺序有点像先序遍历
     getAllPath(node.left, stack.concat(node.val))
     getAllPath(node.right, stack.concat(node.val))
   }

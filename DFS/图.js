@@ -94,22 +94,22 @@ console.log(demo)
 //计算出a到其他顶点的最短距离
 //做到这点，需要给广度遍历的回调函数增加了两个参数，上层的元素，和当前的层数
 
-// let path = []
-// demo.BFS('a', (pre, cur, dis) => {
-//   if(dis == 1) {
-//     path.push([pre, cur])
-//   } else if(dis > 1) {
-//     path.forEach(item => {
-//       if(item[item.length - 1] == pre) {
-//         path.push([...item, cur])
-//       }
-//     })
-//   }
-//   console.log(pre, cur, dis)
-// })
+let path = []
+demo.BFS('a', (pre, cur, dis) => {
+  if(dis == 1) {
+    path.push([pre, cur])
+  } else if(dis > 1) {
+    path.forEach(item => {
+      if(item[item.length - 1] == pre) {
+        path.push([...item, cur])
+      }
+    })
+  }
+  console.log(pre, cur, dis)
+})
 // console.log(path)
 
 
 demo.DFS('a', (pre, cur, dis) => {
-  console.log(pre, cur)
+  // console.log(pre, cur)
 })
