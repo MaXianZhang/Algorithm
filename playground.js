@@ -1,48 +1,84 @@
-var log = console.log
-
-matrix = [
-  [1, 0, 1, 0, 0],
-  [1, 0, 1, 1, 1],
-  [1, 1, 1, 1, 1],
-  [1, 0, 1, 1, 0],
-]
-
-var maximalSquare = function (matrix) {
-  var dp = []
-  var lenX = matrix[0].length
-  var lenY = matrix.length
+const log = console.log
 
 
-  for (var i = 0; i < lenY; i++) {
-    dp[i] = []
-    dp[i][0] = matrix[i][0]
+// const result = find_averages_of_subarrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2]);
+// log(`长度为K的子数组的平均值: ${result}`);
+
+function find_averages_of_subarrays(K, arr) {
+  const result = [];
+  const window = arr.slice(0, K)
+  let curAverages = window.reduce((a, b) => a + b)
+
+  for (let i = 0; i < arr.length - K + 1; i++) {
+    result.push(curAverages / K)
+    curAverages += arr[K + i]
+    curAverages -= window.shift()
+    window.push(arr[K + i])
   }
-  dp[0] = matrix[0]
 
+  return result;
+}
 
+// const result = max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]);
+// log(`连续k个子数组最大和: ${result}`);
 
-  for (var i = 1; i < lenY; i++) {
-    for (var j = 1; j < lenX; j++) {
-      var top = dp[i - 1][j]
-      var left = dp[i][j - 1]
-      var topleft = dp[i - 1][j - 1]
-      var cur = matrix[i][j]
-      if(cur === 1) {
-        if(top === left && left === topleft && topleft === top) {
-          dp[i][j] = top + 1
-        } else {
-          dp[i][j] = 1
-        }
-      } else {
-        dp[i][j] = 0
-      }
+function max_sub_array_of_size_k(K, arr) {
+  let result = 0;
+  const window = arr.slice(0, K)
+  let curAverages = window.reduce((a, b) => a + b)
+
+  for (let i = 0; i < arr.length - K + 1; i++) {
+    if (curAverages > result) {
+      result = curAverages
     }
+    curAverages += arr[K + i]
+    curAverages -= window.shift()
+    window.push(arr[K + i])
   }
-  log(dp)
 
-
-  
-
+  return result;
 };
 
-log(maximalSquare(matrix))
+// console.log(`最小子数组长度: ${smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])}`);
+// console.log(`最小子数组长度: ${smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 8])}`);
+// console.log(`最小子数组长度: ${smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6])}`);
+
+function smallest_subarray_with_given_sum(s, arr) {
+  let windowSum = 0,
+    minLength = Infinity,
+    windowStart = 0;
+
+  // 很好的设计，因为要维护两个索引，尾索引用for循环维护，开始的索引单独维护，在for循环内维护
+  for (windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+    windowSum += arr[windowEnd]; // add the next element
+    // shrink the window as small as possible until the 'window_sum' is smaller than 's'
+    while (windowSum >= s) {
+      // 一句经典的代码
+      minLength = Math.min(minLength, windowEnd - windowStart + 1);
+      windowSum -= arr[windowStart];
+      windowStart += 1;
+    }
+  }
+
+  if (minLength === Infinity) {
+    return 0;
+  }
+
+  return minLength;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
