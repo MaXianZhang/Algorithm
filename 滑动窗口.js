@@ -103,9 +103,6 @@ function longest_substring_with_k_distinct(str, k) {
       }
       windowStart += 1; // shrink the window
     }
-    log(windowStart, windowEnd)
-    log(charFrequency)
-    log()
 
     // remember the maximum length so far
     maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
@@ -119,11 +116,42 @@ function longest_substring_with_k_distinct(str, k) {
 // console.log(`Length of the longest substring: ${longest_substring_with_k_distinct('cbbebi', 3)}`);
 
 
+/**
+ * @param { 给定一个只有小写字母的字符串，如果允许用任何字母替换不超过‘ k’的字母，那么在替换之后找到最长的子字符串的长度。}
+ * @return { substring的参数是首尾索引 }
+ * @return { 模版成型，for内有个while，for控制尾部变量，while控制首部变量， 通常在while之后还会用到Math.min/max做记录 }
+ */
+
+function length_of_longest_substring(str, k) {
+  let windowStart = 0,
+    len = 0,
+    dict = {},
+    result = 0;
+
+  for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {
+    const tail = str[windowEnd];
+    if(!(tail in dict)) dict[tail] = 0
+    dict[tail]++
+    len = windowEnd - windowStart + 1
+
+    while (len - Math.max(...Object.keys(dict).map(key => dict[key])) > k) {
+      const head = str[windowStart]
+      dict[head]--
+      if(dict[head] === 0) delete dict[head]
+      len--
+      windowStart++
+    }
+
+    result = Math.max(result, len)
+  }
+ 
+  return result;
+}
 
 
-
-
-
+console.log(length_of_longest_substring('aabccbb', 2));
+console.log(length_of_longest_substring('abbcb', 1));
+console.log(length_of_longest_substring('abccde', 1));
 
 
 
