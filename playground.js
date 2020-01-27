@@ -4,7 +4,7 @@
  * @return { 但是算法的复杂度没有人家低，他字典里存的是这个字母上次出现的位置，如果再次出现，直接调到上次出现的下一位 }
  */
 
-function non_repeat_substring(str) {
+function non_repeat_substring_mine(str) {
   let windowStart = 0
   let dict = {}
   let result = 0
@@ -67,8 +67,8 @@ function length_of_longest_substring(str, k) {
     maxLength = 0,
     maxRepeatLetterCount = 0,
     frequencyMap = {};
-  
-  
+
+
   return
 }
 // function length_of_longest_substring(str, k) {
