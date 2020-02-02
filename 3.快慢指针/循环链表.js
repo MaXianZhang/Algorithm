@@ -7,6 +7,11 @@ class Node {
   }
 }
 
+/**
+ * @param { 链表是否有循环 }
+ * @return {  }
+  */
+
 function has_cycle(head) {
   let slow = fast = head
 
@@ -20,7 +25,10 @@ function has_cycle(head) {
   return false
 }
 
-// 相似的问题：循环链表的循环长度
+/**
+ * @param { 循环链表的循环长度 }
+ * @return {  }
+  */
 
 function length_of_cycle(head) {
   let slow = fast = head
@@ -43,7 +51,10 @@ function length_of_cycle(head) {
   return len
 }
 
-// 相似的问题：循环链表的循环长度
+/**
+ * @param { 循环链表的循环起始位置 }
+ * @return {  }
+  */
 
 function start_of_cycle(head) {
   let slow = fast = head
