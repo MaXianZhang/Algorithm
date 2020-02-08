@@ -1,4 +1,4 @@
-const LinkedList = require('./链表.js')
+const LinkedList = require('./链表.js.js.js')
 
 // 散列函数：将字符串转换成一个唯一对应的数字，提高查找的效率
 function HashCode(key) {
