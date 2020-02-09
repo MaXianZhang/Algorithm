@@ -17,6 +17,6 @@ function cyclic_sort(nums) {
   return nums;
 }
 
-console.log(cyclic_sort([3, 1, 5, 2]));
+console.log(cyclic_sort([1, 1, 4, 3, 2]));
 // console.log(cyclic_sort([2, 6, 4, 3, 1, 5]));
 // console.log(cyclic_sort([1, 5, 6, 4, 3, 2]));

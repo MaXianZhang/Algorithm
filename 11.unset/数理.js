@@ -77,21 +77,6 @@ function IsPopOrder(pushV, popV) {
 // console.log(IsPopOrder([1,2,3,4,5], [4,5,3,2,1]))
 
 // 连续子数组的最大和
-function FindGreatestSumOfSubArray(arr) {
-  let len = arr.length
-  let resArr = []
-
-  // i为每次取出的数组的长度
-  for(let i = 1; i <= len; i++) {
-    for(let start = 0; start < len - i + 1; start++) {
-      let addRes = arr.slice(start, start + i)
-      resArr.push(addRes.reduce((pre, cur) =>  pre + cur))
-
-    }
-  }
-
-  return Math.max(...resArr)
-}
 
 // 1到n中整数1出现的次数
 function NumberOf1Between1AndN_Solution(n) {

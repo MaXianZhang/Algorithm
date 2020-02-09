@@ -5,7 +5,8 @@
 
 // const CycleSort = require('./循环排序')
 // const FindMissingNumber = require('./遗失的数字')
-const FindMissingNumbers = require('./遗失的数字们')
+// const FindMissingNumbers = require('./遗失的数字们')
+const FindTheNumbers = require('./重复数字')
 
 
 const lg = console.log

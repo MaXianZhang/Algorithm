@@ -21,8 +21,27 @@ function find_averages_of_subarrays(K, arr) {
 }
 
 // const result = max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]);
-// log(`连续k个子数组最大和: ${result}`);
+// log(`: ${result}`);
+/**
+ * @param { 连续k个子数组最大和 }
+ * @return { 长度开始改变 }
+ * @return { 以尾部为准，尽可能让头部前进，达到尽可能缩小的效果 }
+ */
+// 以前的解法
+function FindGreatestSumOfSubArray(arr) {
+  let len = arr.length
+  let resArr = []
 
+  // i为每次取出的数组的长度
+  for(let i = 1; i <= len; i++) {
+    for(let start = 0; start < len - i + 1; start++) {
+      let addRes = arr.slice(start, start + i)
+      resArr.push(addRes.reduce((pre, cur) =>  pre + cur))
+    }
+  }
+  return Math.max(...resArr)
+}
+// 滑动窗口
 function max_sub_array_of_size_k(K, arr) {
   let result = 0;
   const window = arr.slice(0, K)
