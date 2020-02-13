@@ -1,7 +1,11 @@
 /**
  * @param { 阿里的一道面试题 }
- * @return { 一个黑匣子里面有9个乱序的球，红黄蓝各三个，现在提供两个函数getcolor(i), swap(i,j) 
- * 让黑匣子里面的球按照红黄蓝红黄蓝红黄蓝这样的顺序排序 }
+ * @param { 一个黑匣子里面有9个乱序的球，红黄蓝各三个，现在提供两个函数getcolor(i), swap(i,j) 
+ * 让黑匣子里面的球按照红黄蓝红黄蓝红黄蓝这样的顺序排序
+ * getcolor(i) 可以获取第i个球的颜色
+ swap(i,j) 可以交换第i个和第j个球的顺序
+ 要求时间复杂度On 空间复杂度O1
+  }
   */
 const lg = console.log
 const data = ['黄', '黄', '红', '黄', '蓝', '蓝', '红', '蓝', '红']
@@ -30,14 +34,14 @@ function shouldBe(i) {
   }
 }
 
-function demo(data) {
+function sortBalls(data) {
   let i = 0
   let j = 1
   while (i < data.length - 1) {
-    ball = data[i]
+    ball = getcolor(i)
     if (ball === shouldBe(i)) {
-      j = i
       i++
+      j = i + 1
     } else {
       j++
       swap(i, j)
@@ -47,6 +51,6 @@ function demo(data) {
 
 lg(data)
 
-demo(data)
+sortBalls(data)
 
 lg(data)
