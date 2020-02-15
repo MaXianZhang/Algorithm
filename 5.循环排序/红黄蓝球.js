@@ -41,7 +41,7 @@ function sortBalls(data) {
     ball = getcolor(i)
     if (ball === shouldBe(i)) {
       i++
-      j = i + 1
+      j = i
     } else {
       j++
       swap(i, j)
