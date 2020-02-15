@@ -1,7 +1,8 @@
 const log = console.log
 /**
  * @param { 滑动窗口 }
- * @param { 一串数组或者链表，找最什么什么样的子区间 }
+ * @param { 一串数组或者链表，找 最 什么什么样的子区间 }
+ * @param { 重点在于 最 和 连续 }
  */
 
 // const max_sub_array_of_size_k = require('./连续K个子数组最大和')

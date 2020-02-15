@@ -9,7 +9,7 @@ function longest_substring_with_k_distinct(str, k) {
     maxLength = 0,
     charFrequency = {};
 
-  // in the following loop we'll try to extend the range [window_start, window_end]
+  // 伸展窗口 [window_start, window_end]
   for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {
     const rightChar = str[windowEnd];
     if (!(rightChar in charFrequency)) {

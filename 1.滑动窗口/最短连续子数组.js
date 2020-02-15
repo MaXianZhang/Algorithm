@@ -11,7 +11,7 @@ function smallest_subarray_with_given_sum(s, arr) {
   // 很好的设计，因为要维护两个索引，尾索引用for循环维护，开始的索引单独维护，在for循环内维护
   for (windowEnd = 0; windowEnd < arr.length; windowEnd++) {
     windowSum += arr[windowEnd]; // add the next element
-    // shrink the window as small as possible until the 'window_sum' is smaller than 's'
+    // 尽可能缩小窗口
     while (windowSum >= s) {
       // 一句经典的代码
       minLength = Math.min(minLength, windowEnd - windowStart + 1);
