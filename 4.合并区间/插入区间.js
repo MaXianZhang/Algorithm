@@ -20,23 +20,25 @@ function insert(intervals, new_interval) {
   let merged = [],
     i = 0;
 
-  // skip and add to output) all intervals that come before the 'new_interval'
+  // 所有在new之前的区间，全部跳过
   while (i < intervals.length && intervals[i].end < new_interval.start) {
     merged.push(intervals[i]);
     i += 1;
   }
 
-  // merge all intervals that overlap with 'new_interval'
+  // 跳过这些之后，证明开始相交了
+
+  // 在此条件未false之前，相交还没解说结束，所有相交都要合并
   while (i < intervals.length && intervals[i].start <= new_interval.end) {
     new_interval.start = Math.min(intervals[i].start, new_interval.start);
     new_interval.end = Math.max(intervals[i].end, new_interval.end);
     i += 1;
   }
 
-  // insert the new_interval
+  // 把新的new添加到结果里
   merged.push(new_interval);
 
-  // add all the remaining intervals to the output
+  // 剩下的未相交的再填进去
   while (i < intervals.length) {
     merged.push(intervals[i]);
     i += 1;

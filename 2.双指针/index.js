@@ -5,7 +5,7 @@ const log = console.log
  */
 
 
-// const pair_with_target_sum_mine = require('./配对和为K的子元素')
+// const pair_with_target_sum_mine = require('./和为K的二元素')
 // const remove_duplicates = require('./删除重复元素')
 // const search_triplets = require('./和为K的三元组')
 

@@ -9,6 +9,11 @@ class Interval {
   }
 }
 
+/**
+ * @param { 给定两个区间列表，找出这两个列表的交集。 每个列表由根据开始时间排序的不相交的间隔组成。 }
+ * @return { 可以用某一个变量代表一种情况，以便于多条件逻辑判断 }
+  */
+
 function merge_mine(intervals_a, intervals_b) {
   const result = []
   let aI = 0
@@ -43,11 +48,6 @@ function merge_mine(intervals_a, intervals_b) {
 
   return result;
 }
-/**
- * @param { 给定两个区间列表，找出这两个列表的交集。 每个列表由根据开始时间排序的不相交的间隔组成。 }
- * @return { 可以用某一个变量代表一种情况，以便于多条件逻辑判断 }
-  */
-
 
 function merge(intervals_a, intervals_b) {
   let result = [],

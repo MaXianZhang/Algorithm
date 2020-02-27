@@ -6,9 +6,9 @@
   */
 
 // const MergeIntervals = require('./合并区间')
-// const InsertIntervals = require('./插入区间')
+const InsertIntervals = require('./插入区间')
 // const InsertIntersection = require('./多区间相交')
-const ConflictingAppoinments = require('./冲突的日程')
+// const ConflictingAppoinments = require('./冲突的日程')
 
 const lg = console.log
 

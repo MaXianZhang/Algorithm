@@ -13,6 +13,7 @@ class Interval {
 /**
  * @param { 给定一个间隔列表，将所有重叠的间隔合并为一个只有互斥间隔的列表。 }
  * @return { 记录start和end，这两个变量是直接产出一个区间的 }
+ * @return { 有点双指针的意思，毕竟有可能三个区间环环相扣 }
   */
 
 function merge_mine (intervals) {
@@ -27,6 +28,7 @@ function merge_mine (intervals) {
     cur = intervals[0]
     next = intervals[1]
     if(next.start <= cur.end) {
+      // 我的思路这里有问题，以下一个方法为准
       intervals.shift()
       intervals.shift()
       intervals.unshift(new Interval(Math.min(cur.start, next.start), Math.max(cur.end, next.end)))
