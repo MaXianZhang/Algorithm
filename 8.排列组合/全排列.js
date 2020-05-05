@@ -58,7 +58,7 @@ function find_permutations(nums) {
     for (let p = 0; p < n; p++) {
       const oldPermutation = permutations.shift();
       // create a new permutation by adding the current number at every position
-      
+
       for (let j = 0; j < oldPermutation.length + 1; j++) {
         const newPermutation = oldPermutation.slice(0); // clone the permutation
         newPermutation.splice(j, 0, currentNumber); // insert currentNumber at index 'j'
