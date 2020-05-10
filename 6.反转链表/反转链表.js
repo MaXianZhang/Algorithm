@@ -21,9 +21,11 @@ function reverse(head) {
   while (current !== null) {
     // 临时存储下一个节点
     next = current.next;
+    // 反向指针
     current.next = previous; // reverse the current node
-    previous = current; // before we move to the next node, point previous to the current node
-    current = next; // move on the next node
+    // 有点双指针的意思，两个指针都向后移动
+    previous = current;
+    current = next;
   }
   return previous;
 }
