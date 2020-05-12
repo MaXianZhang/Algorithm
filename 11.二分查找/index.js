@@ -1,17 +1,9 @@
-var Arr = [3, 5, 6, 7, 9, 12, 15];
-function binary(find, arr, low, high) { 
-  if (!low <= high) return -1;
+/**
+ * @param { 二分查找 }
+ * @return { 人家的示例只操作了索引 }
+  */
+ 
 
-  if (arr[low] == find) return low;
-  if (arr[high] == find) return high;
-      
-  var mid = Math.ceil((high + low) / 2);
-  if (arr[mid] == find) {
-      return mid;
-  } else if (arr[mid] > find) {
-      return binary(find, arr, low, mid - 1);
-  } else {
-      return binary(find, arr, mid + 1, high);
-  }
-}
-binary(15, Arr, 0, Arr.length - 1);
+ const FindtheMedianofaNumberStream = require('./二分查找')
+ 
+ const lg = console.log

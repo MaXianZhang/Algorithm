@@ -1,4 +1,5 @@
 const Heap = require('collections/heap'); //http://www.collectionsjs.com
+const lg = console.log
 
 class MedianOfAStream {
   constructor() {
@@ -7,6 +8,7 @@ class MedianOfAStream {
   }
 
   insert_num(num) {
+    lg('peek', this.maxHeap.peek())
     if (this.maxHeap.length === 0 || this.maxHeap.peek() >= num) {
       this.maxHeap.push(num);
     } else {
