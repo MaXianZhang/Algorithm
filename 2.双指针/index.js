@@ -1,11 +1,11 @@
-const log = console.log
 /**
  * @param { 在处理排序数组(或 LinkedLists)并需要找到一组满足某些约束的元素时，两指针方法非常有用。 元素的集合可以是一对，一个三元组，甚至一个子数组。 }
  * @return { 与滑动窗口不同，这种方法适用于不连续的多个子元素 }
  */
 
 
-// const pair_with_target_sum_mine = require('./和为K的二元素')
+
+const pair_with_target_sum_mine = require('./和为K的二元素')
 // const remove_duplicates = require('./删除重复元素')
 // const search_triplets = require('./和为K的三元组')
 

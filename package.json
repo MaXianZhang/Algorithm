@@ -1,0 +1,29 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "Blog ====",
+  "main": "playground.js",
+  "scripts": {
+    "test": "nodemon playground.js",
+    "start": "nodemon --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonshelby/Algorithm.git"
+  },
+  "keywords": [
+    "babel"
+  ],
+  "author": "zhangxu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonshelby/Algorithm/issues"
+  },
+  "homepage": "https://github.com/jasonshelby/Algorithm#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.4"
+  }
+}
