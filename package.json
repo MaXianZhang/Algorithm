@@ -1,7 +1,7 @@
 {
   "name": "algorithm",
   "version": "1.0.0",
-  "description": "Blog ====",
+  "description": "脑部肌肉健身房",
   "main": "playground.js",
   "scripts": {
     "test": "nodemon playground.js",
