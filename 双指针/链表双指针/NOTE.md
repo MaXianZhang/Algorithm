@@ -6,7 +6,7 @@ https://leetcode.cn/problems/happy-number/solutions/224894/kuai-le-shu-by-leetco
 
 时间O(log(n)), 空间O(log(n))
 
-单纯的看题目不会直接想到环形链表，需要一层思维的转化，才能将问题转化为环形链表问题，，当然还有最大值之类的数学限制
+2、单纯的看题目不会直接想到环形链表，需要一层思维的转化，才能将问题转化为环形链表问题，，当然还有最大值之类的数学限制
 
 时间O(log(n)), 空间O(1)
 
