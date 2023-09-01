@@ -1,29 +1,4 @@
-//二维数组的查找
-function Find(target, array) {
-  var res = false
-  array.forEach(arr => {
-    arr.forEach(item => {
-      if (item === target) res = true
-    })
-  })
-  return res 
-}
 
-//数组求和
-Math.add = function(arr) {
-  return arr.reduce((pre, cur) =>  pre + cur)
-}
-
-// 替换一个字符串中所有目标片段
-function replaceG(str, target, reStr) {
-  return str.replace(new RegExp(target, 'g') , reStr)
-}
-
-//计数器
-function CreateCounter() {
-  let num = 0
-  return (add) => num += add
-}
 
 //获取中间值
 function GetMedian(arr){
@@ -33,15 +8,6 @@ function GetMedian(arr){
   } else {
     return growData[(growData.length - 1) / 2]
   }
-}
-
-//数组的最大最小值
-function GetMin(arr) {
-  return Math.min(...arr)
-}
-
-function GetMax(arr) {
-  return Math.max(...arr)
 }
 
 //转换为二进制，负数取补码
