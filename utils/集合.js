@@ -1,4 +1,4 @@
-  //给原生的set 提供 交集 并集 差集  子集 等方法
+//给原生的set 提供 交集 并集 差集  子集 等方法
 Object.assign(Set.prototype, {
   // 并集
   bing: function (anotherSet) {

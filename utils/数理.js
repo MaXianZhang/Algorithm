@@ -168,44 +168,14 @@ var B = '12312318'
 // console.log(Badd(A, B))
 // console.log(Number(A) + Number(B))
 
-
-// 两个栈模拟实现队列
-// const cur = []
-// const pocket = []
-
-// function push(node) {
-//   cur.push(node)
-//   return cur.length
-// }
-
-// function pop() {
-//   let len = cur.length
-//   for(var i = 0; i < len; i++) {
-//     pocket.push(cur.pop())
-//   }
-//   const res = pocket.pop()
-//   len = pocket.length
-//   for(var i = 0; i < len; i++) {
-//     cur.push(pocket.pop())
-//   }
-//   return res
-// }
-
 module.exports = {
-  Find,
-  replaceG,
-  CreateCounter,
   GetMedian,
-  GetMin,
-  GetMax,
   ToBinary,
-  FindGreatestSumOfSubArray,
+  IsPopOrder,
   NumberOf1Between1AndN_Solution,
   primeFactorization,
   GetUglyNumber_Solution,
   FirstNotRepeatingChar,
-  bubbleSort,
-  mergeSort,
   PrintMinNumber,
   FindContinuousSequence,
 }
