@@ -1,33 +1,3 @@
-/** 78.子集
- * 元素无重不可复选
- * @param {number[]} nums
- * @return {number[][]}
- */
-const subsets = function(nums) {
-    const res =[];
-    // 随着回溯动态变动
-    const path = [];
-    const subsetsHelper = start => {
-        // 子集记录所有长度的组合
-        res.push([...path]);
-        // 只便利当前数字后边的数字，因为后边的数字返回来的组合方式会有重复
-        for (let i = start; i < nums.length; i++) {
-            // 选择
-            path.push(nums[i]);
-            // 递归
-            subsetsHelper(i + 1);
-            // 回溯
-            path.pop();
-        }
-    }
-
-    subsetsHelper(0);
-
-    return res;
-};
-
-console.log(subsets([1,2,3]));
-
 /** 77.组合
  * 元素无重不可复选
  * @param {number} n
