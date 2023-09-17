@@ -9,3 +9,6 @@
 
 一般是两层循环，外层for循环控制尾指针，内层while循环做条件判断并控制头指针
 
+## TODO
+
+[1156. 单字符重复子串的最大长度](https://leetcode.cn/problems/swap-for-longest-repeated-character-substring/description/)
