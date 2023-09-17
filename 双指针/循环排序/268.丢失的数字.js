@@ -51,5 +51,5 @@ var missingNumber = function (nums) {
 };
 
 
-console.log(find_missing_number([4, 0, 3, 1]));
-console.log(find_missing_number([8, 3, 5, 2, 4, 6, 0, 1]));
+console.log(missingNumber([4, 0, 3, 1]));
+console.log(missingNumber([8, 3, 5, 2, 4, 6, 0, 1]));
