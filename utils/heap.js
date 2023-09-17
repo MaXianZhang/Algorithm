@@ -1,4 +1,4 @@
-class Heap {
+module.exports = class Heap {
     constructor(type = 'max') {
         this.type = type;
         this.heap = [];
@@ -73,3 +73,5 @@ class Heap {
         }
     }
 }
+
+// TODO topK个数字

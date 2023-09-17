@@ -22,8 +22,6 @@ function ValuePair(key, value) {
 }
 
 // 接下来我们要实现put、get、remove，这里的put其实对应了增和改
-// 哇，佩佩的键盘用的好爽啊
-// 感激佩佩
 
 class HashTable {
   constructor() {

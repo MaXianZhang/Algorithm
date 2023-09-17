@@ -1,4 +1,4 @@
-const Heap = require('collections/heap'); //http://www.collectionsjs.com
+const Heap = require('../../utils/Heap'); //http://www.collectionsjs.com
 const lg = console.log
 
 class MedianOfAStream {
