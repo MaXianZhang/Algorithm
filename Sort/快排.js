@@ -1,21 +1,26 @@
 function quickSort(arr, left = 0, right = arr.length - 1) {
     if (left < right) {
-        let pivotIndex = partition(arr, left, right);
-        quickSort(arr, left, pivotIndex - 1);
-        quickSort(arr, pivotIndex + 1, right);
+        let middleIndex = partition(arr, left, right);
+        quickSort(arr, left, middleIndex - 1);
+        quickSort(arr, middleIndex + 1, right);
     }
     return arr;
 }
 
 function partition(arr, left, right) {
-    let pivot = arr[right];
+    console.log(left, right);
+    let middle = arr[right];
     let i = left;
     for (let j = left; j < right; j++) {
-        if (arr[j] < pivot) {
+        // 让i调整到需要移到右边的值（大于中间值）
+        if (arr[j] < middle) {
+            console.log(middle, i, j, arr[j], arr[i]);
             [arr[i], arr[j]] = [arr[j], arr[i]];
             i++;
         }
     }
+
+    console.log(arr.join(','));
 
     [arr[i], arr[right]] = [arr[right], arr[i]];
     return i;
