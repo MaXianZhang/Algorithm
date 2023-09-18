@@ -8,32 +8,26 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 }
 
 function partition(arr, left, right) {
-    console.log(left, right);
     let middle = arr[right];
     let i = left;
+    // i, j同时出发
     for (let j = left; j < right; j++) {
-        // 让i调整到需要移到右边的值（大于中间值）
+        // 这里是个双指针的逻辑，用另外一个指针记录需要调换的位置
+        // 让i调整到需要移到右边的值（大于中间值），然后交换
+
         if (arr[j] < middle) {
-            console.log(middle, i, j, arr[j], arr[i]);
             [arr[i], arr[j]] = [arr[j], arr[i]];
             i++;
         }
     }
 
-    console.log(arr.join(','));
-
+    // 此时i仍然停在需要右移的位置上，而中间值仍在最右侧，交换一下，正好是挑选中的中间值在中间，其他值两边分
     [arr[i], arr[right]] = [arr[right], arr[i]];
     return i;
 }
 
 
-
-function turn(arr, from, to) {
-    [arr[from], arr[to]] = [arr[to], arr[from]]
-}
-
-let d = Date.now()
 console.log(quickSort([41, 3, 21, 7, 8, 8, 8, 94, 345, 67, 13, 234, 123, 52, 3, 45]))
-console.log('用时:%jms', Date.now() - d)
+
 
 

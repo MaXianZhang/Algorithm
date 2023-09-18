@@ -12,4 +12,4 @@ https://mp.weixin.qq.com/s/fSyJVvggxHq28a0SdmZm6Q
 
 ## 三数之和
 
-
+遍历的时候只考虑当前元素之后的元素就好了，之前已经计算过了
