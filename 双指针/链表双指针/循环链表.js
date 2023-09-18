@@ -1,10 +1,8 @@
-const lg = console.log
-
 class Node {
-  constructor(value, next = null) {
-    this.value = value;
-    this.next = next;
-  }
+    constructor(value, next = null) {
+        this.value = value;
+        this.next = next;
+    }
 }
 
 /**
@@ -13,16 +11,16 @@ class Node {
   */
 
 function has_cycle(head) {
-  let slow = fast = head
+    let slow = fast = head
 
-  while (fast && fast.next) {
-    slow = slow.next
-    fast = fast.next.next
-    if (fast === slow) {
-      return true
+    while (fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+        if (fast === slow) {
+            return true
+        }
     }
-  }
-  return false
+    return false
 }
 
 /**
@@ -31,24 +29,24 @@ function has_cycle(head) {
   */
 
 function length_of_cycle(head) {
-  let slow = fast = head
-  let key = true
+    let slow = fast = head
+    let key = true
 
-  while (fast && fast.next && key) {
-    slow = slow.next
-    fast = fast.next.next
-    if (fast === slow) {
-      key = false
+    while (fast && fast.next && key) {
+        slow = slow.next
+        fast = fast.next.next
+        if (fast === slow) {
+            key = false
+        }
     }
-  }
-  if (key) return -1
-  let len = 1
-  let next = slow.next
-  while (slow !== next) {
-    len++
-    next = next.next
-  }
-  return len
+    if (key) return -1
+    let len = 1
+    let next = slow.next
+    while (slow !== next) {
+        len++
+        next = next.next
+    }
+    return len
 }
 
 /**
@@ -57,28 +55,28 @@ function length_of_cycle(head) {
   */
 
 function start_of_cycle(head) {
-  let slow = fast = head
-  let key = true
+    let slow = fast = head
+    let key = true
 
-  while (fast && fast.next && key) {
-    slow = slow.next
-    fast = fast.next.next
-    if (fast === slow) {
-      key = false
+    while (fast && fast.next && key) {
+        slow = slow.next
+        fast = fast.next.next
+        if (fast === slow) {
+            key = false
+        }
     }
-  }
-  if (key) return -1
-  let len = 1
-  let next = slow.next
-  while (slow !== next) {
-    len++
-    next = next.next
-  }
-  while(slow !== head) {
-    slow = slow.next
-    head = head.next
-  }
-  return head.value
+    if (key) return -1
+    let len = 1
+    let next = slow.next
+    while (slow !== next) {
+        len++
+        next = next.next
+    }
+    while (slow !== head) {
+        slow = slow.next
+        head = head.next
+    }
+    return head.value
 }
 
 head = new Node(1)
