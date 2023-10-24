@@ -29,7 +29,7 @@
  * @return {number[][]}
  */
 var zigzagLevelOrder = function(root) {
-    result = [];
+    const result = [];
     if (root === null) {
         return result;
     }
